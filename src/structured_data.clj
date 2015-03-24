@@ -1,16 +1,37 @@
 (ns structured-data)
 
-(defn do-a-thing [x]
-  :-)
 
-(defn spiff [v]
-  :-)
+(defn do-a-thing
+  "Uses let to give a name to the common expression (+ x x) in its body."
+  [x]
+  (let [xx (+ x x)]
+    (Math/pow xx xx)))
 
-(defn cutify [v]
-  :-)
 
-(defn spiff-destructuring [v]
-  :-)
+(defn spiff
+  "Takes a vector and returns the sum of the first and third
+  elements of the vector. What happens when you pass in a
+  vector that is too short?"
+  [v]
+  (let [first (if (nil? (get v 0)) 0 (get v 0))
+        third (if (nil? (get v 2)) 0 (get v 2))]
+    (+ first third))
+
+
+(defn cutify
+  "takes a vector as a parameter and adds "<3" to its end."
+  [v]
+  (conj v "<3"))
+
+
+(defn spiff-destructuring
+  "Rewrites our earlier function spiff by destructuring its parameter"
+  [v]
+  (let [[x y z] v
+        x (if (nil? x) 0 x)
+        z (if (nil? z) 0 z)]
+    (+ x z))
+
 
 (defn point [x y]
   [x y])
