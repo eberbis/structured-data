@@ -66,20 +66,14 @@
 (defn contains-point? [rectangle point]
   "Returns true if rectangle contains point. Otherwise false"
   (let [[[x1 y1] [x2 y2]] rectangle [xp yp] point]
-      (and (<= x1 xp x2) (<= y1 yp y2)
-      )
-  )
-)
+      (and (<= x1 xp x2) (<= y1 yp y2))))
 
 
 (defn contains-rectangle? [outer inner]
   "Returns true if the inner rectangle is inside the outer one. Otherwise false"
   (let [[[x1 y1] [x2 y2]] outer [[x3 y3] [x4 y4]] inner]
     (and (contains-point? (rectangle [x1 y1] [x2 y2]) [x3 y3])
-       (contains-point? (rectangle [x1 y1] [x2 y2]) [x4 y4])
-    )
-  )
-)
+       (contains-point? (rectangle [x1 y1] [x2 y2]) [x4 y4]))))
 
 
 (defn title-length [book]
