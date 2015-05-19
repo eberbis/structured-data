@@ -19,7 +19,7 @@
 
 
 (defn cutify
-  "takes a vector as a parameter and adds "<3" to its end."
+  "Takes a vector as a parameter and adds "<3" to its end."
   [v]
   (conj v "<3"))
 
@@ -36,20 +36,29 @@
 (defn point [x y]
   [x y])
 
+
 (defn rectangle [bottom-left top-right]
   [bottom-left top-right])
 
-(defn width [rectangle]
-  :-)
 
 (defn height [rectangle]
-  :-)
+  "Returns the height of a rectangle"
+  (let [[[x1 y1] [x2 y2]] rectangle]
+  (Math/abs (- y1 y2))))
+
+
+(defn width [rectangle]
+  "Returns the width of a rectangle"
+  (let [[[x1 y1] [x2 y2]] rectangle]
+  (Math/abs (- x1 x2))))
 
 (defn square? [rectangle]
-  :-)
+  "Returns true if rectangle is a square. Otherwise false"
+  (== (height rectangle) (width rectangle)))
 
 (defn area [rectangle]
-  :-)
+  "Returns the area of the given rectangle"
+  (* (height rectangle) (width rectangle)))
 
 (defn contains-point? [rectangle point]
   :-)
