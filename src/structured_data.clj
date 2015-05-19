@@ -52,16 +52,25 @@
   (let [[[x1 y1] [x2 y2]] rectangle]
   (Math/abs (- x1 x2))))
 
+
 (defn square? [rectangle]
   "Returns true if rectangle is a square. Otherwise false"
   (== (height rectangle) (width rectangle)))
+
 
 (defn area [rectangle]
   "Returns the area of the given rectangle"
   (* (height rectangle) (width rectangle)))
 
+
 (defn contains-point? [rectangle point]
-  :-)
+  "Returns true if rectangle contains point. Otherwise false"
+  (let [[[x1 y1] [x2 y2]] rectangle [xp yp] point]
+      (and (<= x1 xp x2) (<= y1 yp y2)
+      )
+  )
+)
+
 
 (defn contains-rectangle? [outer inner]
   :-)
