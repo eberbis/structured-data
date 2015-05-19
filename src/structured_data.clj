@@ -73,7 +73,14 @@
 
 
 (defn contains-rectangle? [outer inner]
-  :-)
+  "Returns true if the inner rectangle is inside the outer one. Otherwise false"
+  (let [[[x1 y1] [x2 y2]] outer [[x3 y3] [x4 y4]] inner]
+    (and (contains-point? (rectangle [x1 y1] [x2 y2]) [x3 y3])
+       (contains-point? (rectangle [x1 y1] [x2 y2]) [x4 y4])
+    )
+  )
+)
+
 
 (defn title-length [book]
   :-)
